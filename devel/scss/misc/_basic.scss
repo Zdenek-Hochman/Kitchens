@@ -1,0 +1,21 @@
+$OrangeColor: #e84e0e;
+$RalewayStyle: (
+    "Black",
+    // "BlackItalic",
+    "Bold",
+    // "BoldItalic",
+    "ExtraBold",
+    // "ExtraBoldItalic",
+    "Italic",
+    "ExtraLight",
+    "Light",
+    // "LightItalic",
+    "Medium",
+    // "MediumItalic",
+    "Regular",
+    "SemiBold",
+    // "SemiBoldItalic",
+    "Thin",
+    // "ThinItalic"
+);
+@include font-face(Raleway, Raleway, $RalewayStyle);
