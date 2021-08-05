@@ -10,8 +10,46 @@ body {
     background: #fbfbfb;
 }
 
+.anchor {
+    color: black;
+    text-decoration: none;
+
+    &--navigation {
+        @include Font("PoppinsMedium", normal, .75rem, null);
+        color: white;
+        text-transform: uppercase;
+        padding: 20px 0;
+    }
+}
+
+.fixed-contact {
+    width: 210px;
+    height: 38px;
+    background: $GrayColor;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    z-index: 999;
+    justify-content: space-around;
+    border-right: 3px solid orange;
+    border-radius: 4px;
+
+    &__telephone {
+        @include Font('MulishBold', null, .8rem, null);
+        color: white;
+        letter-spacing: .1rem;
+    }
+
+    &__icon {
+        fill: white;
+    }
+}
+
 .popup-holder {
-    background: black;
+    background: $OrangeColor;
     width: 100%;
     height: 30px;
     display: flex;
@@ -45,7 +83,7 @@ body {
 }
 
 .navigation {
-    background: #1C1C1C;
+    background: $BlackColor;
     height: 60px;
 
     .navigation-list {
@@ -57,69 +95,204 @@ body {
         height: inherit;
 
         &__item {
-            @include Font(RalewayBold, normal, .75rem, null);
             list-style-type: none;
             margin: 0 20px;
-            color: white;
             cursor: pointer;
-            text-transform: uppercase;
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            @include Transition(transform, .2s, null, ease-in-out);
+
+            &:hover {
+                @include Transform("center", scale(1.1) perspective(0px) translateZ(0px));
+                @include Transition(transform, .1s, null, ease-in-out);
+                -webkit-font-smooting: subpixel-antialiased;
+            }
+
+            &:hover::after {
+                width: 100%;
+                @include Transition(width, .2s, null, ease-in-out);
+            }
+
+            &::after {
+                @include Pseudo("", block, 0%, 2px);
+                @include Transition(width, .2s, null, ease-in-out);
+                position: absolute;
+                background: $OrangeColor;
+                bottom: 14px;
+            }
         }
     }
 }
 
 .img-holder {
     width: 100%;
-    min-height: 600px;
-    background: blue;
-    @include Background("../img/main.jpg", (center, 50%), cover, no-repeat);
+    height: 600px;
+    background: $BlackColor;
     position: relative;
 
     .carousel-wrapper {
         overflow: hidden;
         width: 100%;
+        height: inherit;
 
         .carousel-items {
             -webkit-transform-style: preserve-3d;
             -moz-transform-style: preserve-3d;
             transform-style: preserve-3d;
-        }
+            height: inherit;
 
-        &__carousel {
-            opacity: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            @include Transition((transform: .5s, opacity: .5s), null, null, ease-in-out);
+            &__item {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: inherit;
+                @include Transition((transform: .5s, opacity: 1s), null, null, ease-in-out);
 
-            &--active,
-            &--inital {
-                opacity: 1;
-                position: relative;
-            }
+                .carousel-image {
+                    height: inherit;
+                    width: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                }
 
-            &--prev {
-                transform: translateX(-100%);
-            }
+                .carousel-text {
+                    position: relative;
+                    margin: 0;
+                    background: rgba(0,0,0,0.7);
+                    color: white;
+                    @include Font("MulishMedium", null, 1.5rem, null);
+                    letter-spacing: .1rem;
+                    width: fit-content;
+                    max-width: 50%;
+                    padding: 10px;
+                    left: 10vw;
+                    top: 20%;
+                    line-height: 2.5rem;
+                    box-shadow: 4px 4px 3px 1px rgba(0, 0, 0, .45);
+                }
 
-            &--next {
-                transform: translateX(100%);
+                .carousel-button {
+                    position: relative;
+                    width: 250px;
+                    height: 40px;
+                    left: 10vw;
+                    top: 21%;
+
+                    a {
+                        color: white;
+                        @include Font("MulishBlack", null, .7rem, null);
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: $OrangeColor;
+                        position: relative;
+                        z-index: 1;
+                        letter-spacing: .4rem;
+                        border-radius: 0 0 5px 5px;
+                        overflow: hidden;
+                        @include Transition(color, .3s, null, ease-in-out);
+
+                        &::after {
+                            @include Pseudo("", block, 100%, 0);
+                            background: $BlackColor;
+                            position: absolute;
+                            z-index: -1;
+                            bottom: 0;
+                            @include Transition(height, .3s, null, ease-in-out);
+                        }
+
+                        &:hover {
+                            color: $OrangeColor;
+                            @include Transition(color, .3s, null, ease-in-out);
+                        }
+
+                        &:hover::after {
+                            height: 100%;
+                            @include Transition(height, .3s, null, ease-in-out);
+                        }
+                    }
+                }
+
+                &--active {
+                    opacity: 1;
+                    position: relative;
+                }
+
+                &--prev {
+                    transform: translateX(-100%);
+                }
+
+                &--next {
+                    transform: translateX(100%);
+                }
             }
         }
 
         .arrow {
             position: absolute;
-            top: 50%;
-            background: blue;
+            width: 2rem;
+            height: 4rem;
+            display: inline-block;
             cursor: pointer;
-            width: 3rem;
-            height: 3rem;
+            top: calc(50% - 2rem);
+
+            &--next,
+            &--prev {
+                &::after,
+                &::before {
+                    @include Pseudo("", block, 116%, 4%);
+                    position: absolute;
+                    background: white;
+                    border-radius: .2rem;
+                    left: -5%;
+                    box-shadow: 0 0 6px 0 rgba(0,0,0,0.5);
+                    @include Transition(background, .4s, null, ease-in-out);
+                }
+
+                &:hover {
+                    &::after,
+                    &::before {
+                        background: $OrangeColor;
+                        @include Transition(background, .4s, null, ease-in-out);
+                    }
+                }
+
+                &::before {
+                    top: 71%;
+                }
+
+                &::after {
+                    bottom: 65%;
+                }
+            }
 
             &--prev {
-                left: 0;
+                left: 40px;
+
+                &::after {
+                    transform: rotate(-45deg);
+                }
+
+                &::before {
+                    transform: rotate(45deg);
+                }
             }
 
             &--next {
-                right: 0;
+                right: 40px;
+
+                &::after {
+                    transform: rotate(45deg);
+                }
+
+                &::before {
+                    transform: rotate(-45deg);
+                }
             }
         }
     }

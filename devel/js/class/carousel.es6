@@ -9,24 +9,25 @@ export class Carousel {
 		this.totalItems = this.items.length;
 
 		this.#SetEventListeners();
-
-	}
-
-	SetInitialClasses() {
-		// this.items.firstChild.classList.add("");
-		// this.items.lastChild.classList.add("next");
 	}
 
 	#SetEventListeners() {
 		const Int = this;
 
 		F.On("click", ".arrow--next", (event) => {
-			Int.#MoveCarouselTo(0);
-			// console.log(true);
+			if (!C.MOVING) {
+				C.SLIDE = (C.SLIDE === (Int.totalItems - 1)) ? 0 : C.SLIDE + 1;
+
+				Int.#MoveCarouselTo(C.SLIDE);
+			}
 		})
 
 		F.On("click", ".arrow--prev", (event) => {
-			// console.log(true);
+			if (!C.MOVING) {
+				C.SLIDE = (C.SLIDE === 0) ? (this.totalItems - 1) : C.SLIDE = C.SLIDE - 1;
+
+				Int.#MoveCarouselTo(C.SLIDE);
+			}
 		})
 	}
 
@@ -38,98 +39,24 @@ export class Carousel {
 		}, 500);
 	}
 
-	#MoveCarouselTo(slide) {
+	#MoveCarouselTo(actualSlide) {
 		if (!C.MOVING) {
 			this.#DisableInteraction();
 
-			let nextSlide = slide + 1;
-			let prevSlide = slide - 1;
+			let nextSlide = actualSlide + 1;
+			let prevSlide = actualSlide - 1;
 
-			if (prevSlide <= 0) {
-				prevSlide = (this.totalItems - 1);
-			} else if (nextSlide >= (this.totalItems - 1)) {
-				nextSlide = 0;
-			}
+			(prevSlide < 0) ? (prevSlide = (this.totalItems)) : (nextSlide > (this.totalItems - 1)) ? nextSlide = 0: null;
 
-			F.RemoveClass(this.items, ["prev", "next", "active"])
-			F.RemoveClass(this.items, ["prev", "next", "active"])
+			F.RemoveClass(this.items, [
+                "carousel-items__item--prev",
+                "carousel-items__item--next",
+                "carousel-items__item--active"
+            ]);
 
-			F.AddClass(this.items[prevSlide], ["prev"]);
-			F.AddClass(this.items[slide], ["prev"]);
-			F.AddClass(this.items[nextSlide], ["prev"]);
-
-			// if (slide === 0) {
-			//           newPrevious = (totalItems - 1);
-			//           oldPrevious = (totalItems - 2);
-			//           oldNext = (slide + 1);
-			//         } else if (slide === (totalItems -1)) {
-			//           newPrevious = (slide - 1);
-			//           newNext = 0;
-			//           oldNext = 1;
-			//         }
-			//
-
-
-
+			F.AddClass(this.items[prevSlide], ["carousel-items__item--prev"]);
+			F.AddClass(this.items[actualSlide], ["carousel-items__item--active"]);
+			F.AddClass(this.items[nextSlide], ["carousel-items__item--next"]);
 		}
 	}
-	//         // Based on the current slide, reset to default classes.
-	//       }
-	//     }
-	//   }
 }
-
-//     next.addEventListener('click', moveNext);
-//     prev.addEventListener('click', movePrev);
-//
-//
-//
-//   // Next navigation handler
-//   function moveNext() {
-//
-//     // Check if moving
-//     if (!moving) {
-//
-//       // If it's the last slide, reset to 0, else +1
-//       if (slide === (totalItems - 1)) {
-//         slide = 0;
-//       } else {
-//         slide++;
-//       }
-//
-//       // Move carousel to updated slide
-//       moveCarouselTo(slide);
-//     }
-//   }
-//
-//   // Previous navigation handler
-//   function movePrev() {
-//
-//     // Check if moving
-//     if (!moving) {
-//
-//       // If it's the first slide, set as the last slide, else -1
-//       if (slide === 0) {
-//         slide = (totalItems - 1);
-//       } else {
-//         slide--;
-//       }
-//
-//       // Move carousel to updated slide
-//       moveCarouselTo(slide);
-//     }
-//   }
-//
-//   // Initialise carousel
-//   function initCarousel() {
-//     setInitialClasses();
-//     setEventListeners();
-//
-//     // Set moving to false now that the carousel is ready
-//     moving = false;
-//   }
-//
-//   // make it rain
-//   initCarousel();
-//
-// }(document));

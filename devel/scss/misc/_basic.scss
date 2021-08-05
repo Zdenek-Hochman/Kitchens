@@ -1,21 +1,38 @@
-$OrangeColor: #e84e0e;
+$OrangeColor: #ff8c2a;
+$BlackColor: #1C1C1C;
+$GrayColor: #444343;
 $RalewayStyle: (
     "Black",
-    // "BlackItalic",
     "Bold",
-    // "BoldItalic",
     "ExtraBold",
-    // "ExtraBoldItalic",
-    "Italic",
     "ExtraLight",
     "Light",
-    // "LightItalic",
     "Medium",
-    // "MediumItalic",
     "Regular",
     "SemiBold",
-    // "SemiBoldItalic",
     "Thin",
-    // "ThinItalic"
+);
+$PoppinsStyle: (
+    "Black",
+    "Bold",
+    "ExtraBold",
+    "ExtraLight",
+    "Light",
+    "Medium",
+    "Regular",
+    "SemiBold",
+    "Thin",
+);
+$MulishStyle: (
+    "Black",
+    "Bold",
+    "ExtraBold",
+    "ExtraLight",
+    "Light",
+    "Medium",
+    "Regular",
+    "SemiBold",
 );
 @include font-face(Raleway, Raleway, $RalewayStyle);
+@include font-face(Poppins, Poppins, $PoppinsStyle);
+@include font-face(Mulish, Mulish, $MulishStyle);

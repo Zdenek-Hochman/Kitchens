@@ -34,6 +34,8 @@ export class Functions {
 
 		if (NodeList.prototype.isPrototypeOf(selector) || HTMLCollection.prototype.isPrototypeOf(selector)) {
 			elements = selector
+		} else if (selector instanceof HTMLElement) {
+			elements = [selector];
 		} else {
 			elements = this.Elements(selector);
 		}
