@@ -3,6 +3,7 @@
 
 html {
     font-size: 16px;
+    height: 10000px;
 }
 
 body {
@@ -131,6 +132,7 @@ body {
     height: 600px;
     background: $BlackColor;
     position: relative;
+    box-shadow: 0 3px 8px 0 rgb(0, 0, 0, 0.20);
 
     .carousel-wrapper {
         overflow: hidden;
@@ -172,6 +174,7 @@ body {
                     top: 20%;
                     line-height: 2.5rem;
                     box-shadow: 4px 4px 3px 1px rgba(0, 0, 0, .45);
+                    border-radius: 8px;
                 }
 
                 .carousel-button {
@@ -193,7 +196,6 @@ body {
                         position: relative;
                         z-index: 1;
                         letter-spacing: .4rem;
-                        border-radius: 0 0 5px 5px;
                         overflow: hidden;
                         @include Transition(color, .3s, null, ease-in-out);
 
@@ -292,6 +294,176 @@ body {
 
                 &::before {
                     transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+.section-holder {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+
+    &--about {
+        height: 130px;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+.article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    // width: 75vw;
+    // border-bottom: 3px solid $BlackColor;
+    &__header {
+        &--about {
+            @include Font("PoppinsMedium", null, 1.3rem, null);
+            text-transform: uppercase;
+        }
+    }
+
+    &--image {
+        flex-direction: column-reverse;
+        width: 35vw;
+    }
+
+    &__paragraph {
+        @include Font("PoppinsMedium", null, 1rem, null);
+        margin: 0;
+
+        &--image {
+            background: $BlackColor;
+            padding: 20px 30px;
+            text-align: justify;
+            width: calc(70% - 60px);
+            align-self: flex-end;
+            border-radius: 8px;
+            color: white;
+        }
+    }
+
+    .overview-holder {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 0 0 20px;
+
+        .figure-holder {
+            width: 70%;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column-reverse;
+            margin: 0;
+            position: relative;
+            perspective: 2000px;
+
+            &::after,
+            &::before {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+
+            &::before {
+                @include Pseudo("", block, 100%, 700px);
+                // background: black;
+                // opacity: .5;
+            }
+
+            &::after {
+                @include Pseudo("", block, 90%, 88%);
+                border: 3px solid rgba(255,255,255,0.5);
+                left: calc(50% - 90%/2 - 6px/2);
+                bottom: calc(90%/2 - 700px/2 + 2rem);
+                pointer-events: none;
+            }
+
+            &__image {
+                width: 100%;
+                height: 700px;
+                object-fit: cover;
+                object-position: top;
+                filter: blur(0);
+                box-shadow: 0 0 11px -1px rgb(0, 0, 0, 0.4);
+                @include Transition(transform, .2s, null, linear);
+                cursor: pointer;
+                border-radius: 8px;
+            }
+
+            &__figcaption {
+                margin-top: -18px;
+                @include Font("PoppinsBold", null, 2rem, null);
+                text-transform: uppercase;
+                margin: 0;
+                color: $GrayColor;
+            }
+
+            &__label {
+                @include Font("MulishBold", null, 1rem, null);
+                color: rgba(255,255,255,0.5);
+                position: absolute;
+                bottom: 30px;
+                left: 35px;
+                text-transform: uppercase;
+            }
+        }
+
+        .overview-button {
+            background: $BlackColor;
+            flex: .5;
+            margin-right: 20px;
+            height: 700px;
+            align-self: flex-end;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+
+            &::after,
+            &::before {
+                @include Pseudo("", block, 150%, 4px);
+                position: absolute;
+                background: $OrangeColor;
+                z-index: 0;
+            }
+
+            &::after {
+                @include Transform("center", rotate(45deg));
+                top: 9vh;
+            }
+
+            &::before {
+                @include Transform("center", rotate(-45deg));
+                bottom: 9vh;
+            }
+
+            &__anchor {
+                text-decoration: none;
+                color: white;
+                text-orientation: mixed;
+                writing-mode: vertical-rl;
+                @include Font("MulishLight", null, 1.4rem, null);
+                @include Transform("center", rotate(180deg));
+                text-transform: uppercase;
+                letter-spacing: .3rem;
+                position: relative;
+                @include Transition(transform, .2s, null, ease-in-out);
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1;
+
+                &:hover {
+                    @include Transform("center", scale(1.1) rotate(180deg));
+                    @include Transition(transform, .2s, null, ease-in-out);
                 }
             }
         }

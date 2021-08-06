@@ -4,23 +4,17 @@ export class Functions {
 	}
 
 	static On(event, selector, callback) {
-		const Int = this;
+		const elements = this.#ControlObject(selector);
 
 		if (typeof callback === 'function') {
-			Int.Elements(selector).forEach((item) => {
+			elements.forEach((item) => {
 				item.addEventListener(event, callback);
 			});
 		}
 	}
 
 	static RemoveClass(selector, []) {
-		let elements = Object();
-
-		if (NodeList.prototype.isPrototypeOf(selector) || HTMLCollection.prototype.isPrototypeOf(selector)) {
-			elements = selector
-		} else {
-			elements = this.Elements(selector);
-		}
+		const elements = this.#ControlObject(selector);
 
 		elements.forEach((item) => {
 			arguments[1].forEach((value) => {
@@ -30,6 +24,16 @@ export class Functions {
 	}
 
 	static AddClass(selector, []) {
+		const elements = this.#ControlObject(selector);
+
+		elements.forEach((item) => {
+			arguments[1].forEach((value) => {
+				item.classList.add(value);
+			});
+		})
+	}
+
+	static #ControlObject(selector) {
 		let elements = Object();
 
 		if (NodeList.prototype.isPrototypeOf(selector) || HTMLCollection.prototype.isPrototypeOf(selector)) {
@@ -40,10 +44,12 @@ export class Functions {
 			elements = this.Elements(selector);
 		}
 
-		elements.forEach((item) => {
-			arguments[1].forEach((value) => {
-				item.classList.add(value);
-			});
-		})
+		return elements;
+	}
+
+	static SetStyles(Element, Styles) {
+		Object.assign(Element.style, Styles);
+
+		return Element;
 	}
 }

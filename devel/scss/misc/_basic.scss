@@ -1,17 +1,6 @@
 $OrangeColor: #ff8c2a;
 $BlackColor: #1C1C1C;
 $GrayColor: #444343;
-$RalewayStyle: (
-    "Black",
-    "Bold",
-    "ExtraBold",
-    "ExtraLight",
-    "Light",
-    "Medium",
-    "Regular",
-    "SemiBold",
-    "Thin",
-);
 $PoppinsStyle: (
     "Black",
     "Bold",
@@ -33,6 +22,5 @@ $MulishStyle: (
     "Regular",
     "SemiBold",
 );
-@include font-face(Raleway, Raleway, $RalewayStyle);
 @include font-face(Poppins, Poppins, $PoppinsStyle);
 @include font-face(Mulish, Mulish, $MulishStyle);
