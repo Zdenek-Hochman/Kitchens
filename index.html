@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="cs" dir="ltr">
+
     <head>
         <meta charset="utf-8">
         <title>TEST</title>
@@ -12,8 +13,10 @@
 
     <body>
         <div class="fixed-contact">
-            <span class="fixed-contact__telephone">+420 123 456 789</span>
-            <svg class="fixed-contact__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/></svg>
+            <span class="fixed-contact__telephone"><a href="tel:+420 123 456 789">+420 123 456 789</a></span>
+            <svg class="fixed-contact__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z" />
+            </svg>
         </div>
 
         <header>
@@ -22,19 +25,39 @@
             </div>
 
             <div class="logo-holder">
-                <h1 class="logo-holder__heading">Název webu<br><span class="logo-holder__heading--sub">Podnázev webu</span></h1>
+                <h1 class="logo-holder__heading">Název webu <span class="logo-holder__heading--sub">Podnázev webu</span></h1>
             </div>
 
             <nav class="navigation">
+                <div class="navigation-logo">LOGO HOLDER</div>
+
                 <ul class="navigation-list">
-                    <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Úvod</a></li>
-                    <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
-                    <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
+                    <li class="navigation-list__item navigation-list__item--active"><a class="anchor anchor--navigation" href="#">Úvod</a></li>
                     <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
                     <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
                     <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
                     <li class="navigation-list__item"><a class="anchor anchor--navigation" href="#">Kategorie</a></li>
                 </ul>
+
+                <ul class="social-list">
+                    <li class="social-list__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
+                        </svg>
+                    </li>
+
+                    <li class="social-list__item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M17.25 7.288v1.269c0 .297-.241.539-.538.539h-1.269c-.299 0-.538-.242-.538-.539v-1.269c0-.297.239-.538.538-.538h1.269c.297 0 .538.241.538.538zm-5.25 7.403c1.486 0 2.693-1.205 2.693-2.692s-1.207-2.69-2.693-2.69c-1.487 0-2.691 1.204-2.691 2.691s1.204 2.691 2.691 2.691zm4.261-3.291c.028.196.046.396.046.599 0 2.38-1.928 4.308-4.307 4.308s-4.307-1.928-4.307-4.307c0-.204.018-.403.046-.599.027-.194.066-.383.118-.567h-1.107v5.879c0 .297.241.538.538.538h9.424c.297 0 .538-.241.538-.538v-5.879h-1.107c.05.184.09.373.118.566zm7.739.6c0 6.627-5.373 12-12 12s-12-5.373-12-12 5.373-12 12-12 12 5.373 12 12zm-5-5.385c0-.892-.723-1.615-1.615-1.615h-10.77c-.892 0-1.615.723-1.615 1.615v10.769c0 .893.723 1.616 1.615 1.616h10.77c.892 0 1.615-.723 1.615-1.616v-10.769z" />
+                        </svg>
+                    </li>
+
+                    <li class="social-list__button">
+                        <a href="#">Kontakt</a>
+                    </li>
+                </ul>
+
             </nav>
 
             <div class="img-holder">
@@ -69,7 +92,7 @@
 
         <main>
             <section class="section-holder section-holder--about">
-                <article class="article">
+                <article class="article article--about">
                     <h2 class="article__header article__header--about">O firmě</h2>
                     <p class="article__paragraph article__paragraph--about">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce wisi. Curabitur bibendum justo non orci. In sem justo, commodo ut, suscipit at, pharetra vitae, orci.
@@ -77,7 +100,7 @@
                 </article>
             </section>
 
-            <section class="section-holder">
+            <section class="section-holder section-holder--image">
                 <article class="article article--image">
                     <p class="article__paragraph article__paragraph--image">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce wisi. Curabitur bibendum justo non orci.
@@ -131,10 +154,155 @@
                     </div>
                 </article>
             </section>
+
+            <section class="other">
+                DALŠÍ OBSAH...
+            </section>
         </main>
 
-        <footer>
+        <footer class="footer">
+            <div class="footer__holder">
+                <div class="footer-info">
+                    <p class="footer-header">Kontatní informace</p>
+                    <ul class="footer-list">
+                        <li class="footer-list__item">
+                            <div class="list-block">
+                                <svg class="list-block__image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z" />
+                                </svg>
+                                <span class="list-block__span">email: </span>
+                            </div>
 
+                            <span class="text-block">test@test.cz</span>
+                        </li>
+                        <li class="footer-list__item">
+                            <div class="list-block">
+                                <svg class="list-block__image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z" />
+                                </svg>
+                                <span class="list-block__span">tel: </span>
+                            </div>
+
+                            <span class="text-block">+420 123 456 789</span>
+                        </li>
+                        <li class="footer-list__item">
+                            <div class="list-block">
+                                <svg class="list-block__image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z" />
+                                </svg>
+                                <span class="list-block__span">kontakt: </span>
+                            </div>
+
+                            <span class="text-block">osoba</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info">
+                    <p class="footer-header">Ostatní Informace</p>
+
+                    <ul class="footer-list">
+                        <li class="footer-list__item">
+                            <span class="text-block">Obchodní podmínky</span>
+                        </li>
+
+                        <li class="footer-list__item">
+                            <span class="text-block">Dodavetelé</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-info">
+                    <p class="footer-header">Sociální sítě</p>
+
+                    <ul class="footer-list">
+                        <li class="footer-list__item">
+                            <div class="list-block">
+                                <svg class="list-block__image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                                </svg>
+                                <span class="list-block__span">Facebook </span>
+                            </div>
+                        </li>
+
+                        <li class="footer-list__item">
+                            <div class="list-block">
+                                <svg class="list-block__image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                                <span class="list-block__span">Instagram </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="suppliers-header">Naši Dodavetelé</p>
+
+            <div class="suppliers_holder">
+                <ul class="suppliers-list">
+                    <li class="suppliers-list__item">
+                        <img class="supplier-logo" src="./public/img/logos/eger.png" alt="">
+                    </li>
+                    <li class="suppliers-list__item">
+                        <img class="supplier-logo" src="./public/img/logos/eger.png" alt="">
+                    </li>
+                    <li class="suppliers-list__item">
+                        <img class="supplier-logo" src="./public/img/logos/eger.png" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <p class="footer-copyright">copyright 2021 &copy; <span class="line">|</span> <span class="created">Vytvořil: John Doe</span></p>
         </footer>
+
+        <div class="contact-helper">
+            <div class="helper-holder">
+                <div class="close-cross">
+                    <div class="close-cross__line"></div>
+                </div>
+
+                <p class="helper-holder__info">
+                    Lorem ipsum dolor sit amet, consectetuer.
+                </p>
+
+                <form class="form-holder" method="post">
+                    <div class="input-holder">
+                        <label class="input-holder__label" for="name">Jméno</label>
+                        <input class="input-holder__input" placeholder="Jméno" type="text" id="name" name="name" value="">
+                    </div>
+
+                    <div class="input-holder">
+                        <label class="input-holder__label" for="email">E-mail</label>
+                        <input class="input-holder__input" placeholder="E-mail" type="text" id="email" name="email" value="">
+                    </div>
+
+                    <div class="input-holder">
+                        <label class="input-holder__label" for="tel">Telefon</label>
+                        <input class="input-holder__input" placeholder="Telefon" type="text" id="tel" name="tel" value="">
+                    </div>
+
+                    <div class="input-holder">
+                        <label class="input-holder__label" for="message">Zpráva</label>
+                        <textarea id="message" class="input-holder__input input-holder__input--area"></textarea>
+                    </div>
+
+                    <input class="form-send" type="submit" name="send" value="Odeslat" />
+                </form>
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z" />
+            </svg>
+        </div>
+
+        <div class="cookies-holder">
+            <p class="cookies-holder__info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin in tellus sit amet nibh dignissim sagittis.</p>
+            <div class="cookies-holder__button">Potvrdit</div>
+        </div>
     </body>
+
 </html>
